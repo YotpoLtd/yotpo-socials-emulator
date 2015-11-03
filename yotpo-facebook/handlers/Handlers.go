@@ -3,7 +3,9 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
+
 	"strings"
 	/*"github.com/gorilla/mux"*/)
 
@@ -45,7 +47,7 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 	if strings.Contains(r.URL.Path, "permissions") {
-		me := MePermission{
+		/*me := MePermission{
 			Data: MeDataPermissions{
 				MeDataPermission{Permission: "user_friends", Status: "granted"},
 				MeDataPermission{Permission: "email", Status: "granted"},
@@ -55,8 +57,21 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 				MeDataPermission{Permission: "publish_pages", Status: "granted"},
 				MeDataPermission{Permission: "public_profile", Status: "granted"},
 			},
+		}*/
+		dat, err := ioutil.ReadFile("./yotpo-facebook/static_responses/permissions.json")
+
+		if err != nil {
+			fmt.Printf("File error: %v\n", err)
+			panic(err)
 		}
-		json.NewEncoder(w).Encode(me)
+
+		jsondata := map[string]interface{}{}
+		if err := json.Unmarshal(dat, &jsondata); err != nil {
+			panic(err)
+		}
+		fmt.Printf("%q", jsondata)
+		json.NewEncoder(w).Encode(jsondata)
+
 	}
 	if strings.Contains(r.URL.Path, "accounts") {
 		fmt.Fprintln(w, "accounts!")
