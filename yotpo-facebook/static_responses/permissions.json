@@ -1,0 +1,32 @@
+{
+"data": [
+{
+"permission": "user_friends",
+"status": "granted"
+},
+{
+"permission": "email",
+"status": "granted"
+},
+{
+"permission": "ads_management",
+"status": "granted"
+},
+{
+"permission": "ads_read",
+"status": "granted"
+},
+{
+"permission": "manage_pages",
+"status": "granted"
+},
+{
+"permission": "publish_pages",
+"status": "granted"
+},
+{
+"permission": "public_profile",
+"status": "granted"
+}
+]
+}
