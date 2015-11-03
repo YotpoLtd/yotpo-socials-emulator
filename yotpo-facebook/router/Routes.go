@@ -2,7 +2,7 @@ package router
 
 import (
 	"net/http"
-	"yotpo-facebook/handlers"
+	"yotpo-socials-emulator/yotpo-facebook/handlers"
 )
 
 /*Route structure*/

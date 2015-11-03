@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-	"yotpo-facebook/router"
+	"yotpo-socials-emulator/yotpo-facebook/router"
 )
 
 func main() {
