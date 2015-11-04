@@ -21,18 +21,18 @@ var routes = Routes{
 		"Authenticate",
 		"GET",
 		"/me/permissions",
-		handlers.Authenticate,
+		handlers.PermissionsAuthenticate,
 	},
 	Route{
 		"Authenticate",
 		"GET",
 		"/me",
-		handlers.Authenticate,
+		handlers.MeAuthenticate,
 	},
 	Route{
 		"Authenticate",
 		"GET",
 		"/me/accounts",
-		handlers.Authenticate,
+		handlers.AccountsAuthenticate,
 	},
 }
