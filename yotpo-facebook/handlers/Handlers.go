@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-
 	"strings"
 	/*"github.com/gorilla/mux"*/)
 
@@ -32,6 +31,10 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 	}
 	if strings.Contains(r.URL.Path, "accounts") {
 		fmt.Fprintln(w, "accounts!")
+		fields := r.FormValue("fields")
+		fmt.Printf("\n%q\n", fields)
+		fieldsarr := strings.Split(fields, ",")
+		fmt.Fprintf(w, "\nURL params are: %q\n", fieldsarr)
 	}
 	if strings.Contains(r.URL.Path, "me?") {
 		fmt.Fprintln(w, "me?")
